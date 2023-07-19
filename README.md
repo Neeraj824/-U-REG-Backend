@@ -1,6 +1,6 @@
 Clone the repository:
 
-git clone -b master https://github.com/Neeraj824/-U-REG-Backend.git
+git clone -b main https://github.com/Neeraj824/-U-REG-Backend.git
 
 Navigate to the project directory:
 
