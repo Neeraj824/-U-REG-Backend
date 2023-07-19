@@ -2,16 +2,21 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
 const port = 3001;
+
+
+
 // Enable cross-origin requests
 app.use(cors());
 // Database connection configuration
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: '12345678',
-  database: 'forex', 
+  host: process.env.HOST,
+  user: process.env.USER_NAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE, 
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -20,7 +25,7 @@ const pool = mysql.createPool({
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 // API endpoint to get historical exchange rates for a specific date
-app.get('/api/rates/v1/:date', async (req, res) => {
+app.get('/api/v1/rates/:date', async (req, res) => {
   const { date } = req.params;
   try {
     // Execute the SQL query to retrieve the latest exchange rates for all currencies

@@ -4,7 +4,7 @@ git clone -b main https://github.com/Neeraj824/-U-REG-Backend.git
 
 Navigate to the project directory:
 
-cd Backend
+cd ~project_path
 
 Install the dependencies using npm or Yarn:
 
