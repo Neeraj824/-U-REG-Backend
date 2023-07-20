@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../config');
 
-// API endpoint to get historical exchange rates for a specific date
-router.get('/:date', async (req, res) => {
+const validateDate = require('../middleware/validateDate'); // middleware for handle the validation and other validation
+
+// API endpoint to get rates rates for a specific date
+router.get('/:date', validateDate, async (req, res) => {
   const { date } = req.params;
   try {
     // Execute the SQL query to retrieve the latest exchange rates for all currencies
